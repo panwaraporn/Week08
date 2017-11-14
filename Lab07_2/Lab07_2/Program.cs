@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace ConsoleAppArray
 {
@@ -7,44 +6,51 @@ namespace ConsoleAppArray
     {
         static void Main(string[] args)
         {
-            // Array of characters.
-            char[] array1 = { 'q', 'w', 'e', 'r', 't',
-                'y', 'u', 'i', 'o', 'p' };
-            Array.Sort(array1);
+            int[] ArrayA = new int[] { 1, 2, 3, 4, 5, 6 };
+            int[] ArrayB = new int[6];
+            // copy by operator =
+            ArrayB = ArrayA;
 
-            // Array of strings.
-            string[] colors = new string[] { "red",
-              "orange", "blue", "green", "yellow", "lemon", "aqua"  };
-            Array.Sort(colors);
+            Console.WriteLine("*** Array copy by operator = ***");
+            Console.WriteLine("===== Before =====");
+            for (int i = 0; i < ArrayA.Length; i++)
+            {
+                Console.WriteLine("arrayA[{0}] = {1}, 
+                  ArrayB[{ 0}] = { 2}
+                ",i, ArrayA[i], ArrayB[i]);
+            }
+            // change element 0 of ArrayA
+            ArrayA[0] = 9;
+            Console.WriteLine("===== After ======");
+            for (int i = 0; i < ArrayA.Length; i++)
+            {
+                Console.WriteLine("ArrayA[{0}] = {1}, 
+                  ArrayB[{ 0}] = { 2}
+                ", i, ArrayA[i], ArrayB[i]);
+            }
 
-            string[] AseanCountries = new string[] { "Cambodia", "Malaysia",
-              "Indonesia", "Singapore", "Thailand", "Philippines",
-              "Vietnam", "Brunei Darussalam", "Laos", "Myanmar" };
+            // copy by method Array.Copy()
+            int[] ArrayC = new int[6];
+            Array.Copy(ArrayA, ArrayC, ArrayA.Length);
 
-            // C# program that uses LINQ
-            var sortAscending = from country in AseanCountries
-                                orderby country
-                                select country;
-            var sortDescending = from country in AseanCountries
-                                 orderby country descending
-                                 select country;
+            Console.WriteLine("*** Array copy by method Array.Copy() ***");
+            Console.WriteLine("===== Before =====");
+            for (int i = 0; i < ArrayA.Length; i++)
+            {
+                Console.WriteLine("ArrayA[{0}] = {1}, 
+                  ArrayC[{ 0}] = { 2}
+                ", i, ArrayA[i], ArrayC[i]);
+            }
+            // change element 0 of ArrayA
+            ArrayA[0] = 1;
+            Console.WriteLine("===== After =====");
+            for (int i = 0; i < ArrayA.Length; i++)
+            {
+                Console.WriteLine("ArrayA[{0}] = {1}, 
+                  ArrayC[{ 0}] = { 2}
+                ", i, ArrayA[i], ArrayC[i]);
+            }
 
-            // print output
-            Console.WriteLine("------Character sorting----------");
-            foreach (var c in array1)
-                Console.WriteLine(c);
-
-            Console.WriteLine("------String sorting----------");
-            foreach (string color in colors)
-                Console.WriteLine(color);
-
-            Console.WriteLine("------String sort ascending----------");
-            foreach (string c in sortAscending)
-                Console.WriteLine(c);
-
-            Console.WriteLine("------String sort descending----------");
-            foreach (string c in sortDescending)
-                Console.WriteLine(c);
             // wait
             Console.ReadLine();
         }
