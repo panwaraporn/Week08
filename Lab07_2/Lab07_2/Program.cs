@@ -1,28 +1,35 @@
 ﻿using System;
-namespace ConsoleAppArray
+
+namespace ArrayOfArray
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[,] multiplyTable = new int[12, 12];
-            for (int i = 0, table = 2; i < multiplyTable.GetLength(0); i++, table++)
+            int[][] jagged = new int[7][];
+            int count = 0;
+            for (int row = 0; row < jagged.GetLength(0); ++row)
             {
-                for (int j = 0; j < multiplyTable.GetLength(1); j++)
+                Console.Write("\nRow {0}:", row);
+                jagged[row] = new int[row + 1];
+                for (int index = 0; index < row + 1; ++index)
                 {
-                    multiplyTable[j, i] = table * (j + 1);
+                    ++count;
+                    jagged[row][index] = count;
+                    Console.Write(" {0}", count);
                 }
             }
-            for (int row = 0; row < multiplyTable.GetLength(0); row++)
+            Console.WriteLine("\n\nTotals");
+            for (int row = 0; row < jagged.GetLength(0); ++row)
             {
-                for (int col = 0; col < multiplyTable.GetLength(1); col++)
+                int total = 0;
+                for (int index = 0; index < jagged[row].GetLength(0); ++index)
                 {
-                    Console.Write("{0,5}", multiplyTable[row, col]);
+                    total += jagged[row][index];
                 }
-                Console.WriteLine();
+                Console.Write("\nRow {0}: {1}", row, total);
             }
-            52
-        Console.ReadLine();
+            Console.ReadLine();
         }
     }
 }
