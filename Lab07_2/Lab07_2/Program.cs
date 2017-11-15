@@ -1,28 +1,34 @@
 ﻿using System;
-using System.Linq;
 namespace ConsoleAppArray
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string[] monthsName = new string[]
-            { "January","February","March","April","May","June","July","August",
-"September", "October", "November", "December" };
-            // C# program that uses LINQ
-            var sortAscending = from months in monthsName
-                                orderby months
-                                select months;
-            var sortDescending = from months in monthsName
-                                 orderby months descending
-                                 select months;
-            Console.WriteLine("---String sort ascending---");
-            foreach (string c in sortAscending)
-                Console.WriteLine(c);
-            Console.WriteLine("---String sort descending---");
-            foreach (string c in sortDescending)
-                Console.WriteLine(c);
+            //find "ber"
+            string[] ArrayA = Array.FindAll(Names, element => element.EndsWith("ber",
+            StringComparison.Ordinal));
+            string[] ArrayB;
+            //find "ry"
+            string[] ArrayC = Array.FindAll(Names, element => element.EndsWith("ry",
+            StringComparison.Ordinal));
+            string[] ArrayD;
+            // copy by operator =
+            ArrayB = ArrayA;
+            ArrayD = ArrayC;
+            Console.WriteLine("*** Array copy by operator = ***");
+            Console.WriteLine("===== Months =====");
+            
+        for (int i = 0; i < Names.Length; i++)
+            { Console.WriteLine("Month[{0}] = {1}", i + 1, Names[i]); }
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Find 'ber' : " + (string.Join(", ", ArrayB)));
+            Console.WriteLine("Find 'ry' : " + (string.Join(", ", ArrayD)));
             Console.ReadKey();
         }
+        public static string[] Names = new string[]
+        { "January" , "February" , "March" , "April" , "May" , "June" , "July" , "August" , "September" , "October"
+, "November" , "December"
+        };
     }
 }
