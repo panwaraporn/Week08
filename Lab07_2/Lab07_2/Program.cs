@@ -1,29 +1,49 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
-namespace QueueDemo
+namespace StackDemo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Queue<int> queue1 = new Queue<int>();
-            queue1.Enqueue(10);
-            queue1.Enqueue(20);
-            queue1.Enqueue(30);
-            queue1.Enqueue(40);
-            Console.WriteLine("The queue elements are:");
-            foreach (int i in queue1)
+            Stack<int> s = new Stack<int>();
+            Console.WriteLine("-- add 4 items -- ");
+            s.Push(10);
+            s.Push(20);
+            s.Push(30);
+            s.Push(40);
+            Console.Write("Stack contains : ");
+            foreach (var item in s)
             {
-                Console.WriteLine(i);
+                Console.Write(item + " ");
             }
-            ArrayList array = new ArrayList(queue1.ToArray());
-            Console.WriteLine("\nContents of the copy");
-            foreach (int i in array)
+            Console.WriteLine(Environment.NewLine + "s.Count  = {0}", s.Count);
+            Console.WriteLine("s.Peek = {0}", s.Peek());
+
+            Console.WriteLine("-- add more items -- ");
+            s.Push(50);
+            s.Push(60);
+
+            Console.Write("Queue contains : ");
+            foreach (var item in s)
             {
-                Console.WriteLine(i);
+                Console.Write(item + " ");
             }
+            Console.WriteLine(Environment.NewLine + "s.Count  = {0}", s.Count);
+            Console.WriteLine("s.Peek = {0}", s.Peek());
+
+            Console.WriteLine("-- push -- ");
+            int i = s.Pop();
+            Console.WriteLine("i = {0}", i);
+
+            Console.Write("Stack contains : ");
+            foreach (var item in s)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine(Environment.NewLine + "s.Count  = {0}", s.Count);
+            Console.WriteLine("s.Peek = {0}", s.Peek());
             Console.ReadLine();
         }
     }
