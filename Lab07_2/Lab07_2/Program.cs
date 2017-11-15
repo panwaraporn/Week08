@@ -1,33 +1,29 @@
 ﻿using System;
+using System.Collections;
 
-namespace ArrayOfArray
+namespace ArrayListDemo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[][] jagged = new int[7][];
-            int count = 0;
-            for (int row = 0; row < jagged.GetLength(0); ++row)
+            ArrayList list = new ArrayList();
+            Console.WriteLine("Create a list");
+            Console.WriteLine("List capacity = {0,2}", list.Capacity);
+            for (int i = 0; i < 100; i++)
             {
-                Console.Write("\nRow {0}:", row);
-                jagged[row] = new int[row + 1];
-                for (int index = 0; index < row + 1; ++index)
-                {
-                    ++count;
-                    jagged[row][index] = count;
-                    Console.Write(" {0}", count);
-                }
+                Console.Write("Add int to list : {0,2} => ", i);
+                list.Add(i);
+                Console.WriteLine("List count =  {0,3}, capacity = {1,3}  ",
+    list.Count, list.Capacity);
             }
-            Console.WriteLine("\n\nTotals");
-            for (int row = 0; row < jagged.GetLength(0); ++row)
+            Console.WriteLine("-----------------------");
+            for (int i = 0; i < 100; i++)
             {
-                int total = 0;
-                for (int index = 0; index < jagged[row].GetLength(0); ++index)
-                {
-                    total += jagged[row][index];
-                }
-                Console.Write("\nRow {0}: {1}", row, total);
+                Console.Write("Remove int from list : {0,2} => ", i);
+                list.Remove(i);
+                Console.WriteLine("List count =  {0,3}, capacity = {1,3}  ",
+    list.Count, list.Capacity);
             }
             Console.ReadLine();
         }
