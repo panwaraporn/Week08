@@ -2,28 +2,34 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace QueueDemo
+namespace DictionaryDemo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Stack<int> stack1 = new Stack<int>();
-            stack1.Push(10);
-            stack1.Push(20);
-            stack1.Push(30);
-            stack1.Push(40);
-            Console.WriteLine("The stack elements are:");
-            foreach (int i in stack1)
+            Dictionary<string, int> dict1 = new Dictionary<string, int>();
+            dict1.Add("One", 1);
+            dict1.Add("Two", 2);
+            dict1.Add("Three", 3);
+            dict1.Add("Four", 4);
+            dict1.Add("Five", 5);
+            dict1.Add("Six", 6);
+            dict1.Add("Seven", 7);
+            dict1.Add("Eight", 8);
+            dict1.Add("Nine", 9);
+            dict1.Add("Ten", 10);
+
+            foreach (var item in dict1)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(item);
             }
-            ArrayList array = new ArrayList(stack1.ToArray());
-            Console.WriteLine("\nContents of the copy");
-            foreach (int i in array)
+
+            foreach (var item in dict1)
             {
-                Console.WriteLine(i);
+                Console.WriteLine("key = {0}, value = {1}", item.Key, item.Value);
             }
+
             Console.ReadLine();
         }
     }
