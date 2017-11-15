@@ -8,22 +8,23 @@ namespace ArrayListDemo
         static void Main(string[] args)
         {
             ArrayList list1 = new ArrayList();
-            list1.Add(1);
-            list1.Add(2);
-            list1.Add(3);
-            list1.Add(4);
-            list1.Add(5);
-            Console.WriteLine("list1 count = {0}, capacity = {1}",
-list1.Count, list1.Capacity);
-            ArrayList list2 = new ArrayList(20);
-            Console.WriteLine("list2 count = {0}, capacity = {1}",
-list2.Count, list2.Capacity);
-            ArrayList list3 = new ArrayList(list1);
-            Console.WriteLine("list3 count = {0}, capacity = {1}",
-list3.Count, list3.Capacity);
-            ArrayList list4 = new ArrayList(list2);
-            Console.WriteLine("list4 count = {0}, capacity = {1}",
-list4.Count, list4.Capacity);
+            list1.Add(10);
+            list1.Add(20);
+            list1.Add(30);
+            list1.Add(40);
+            for (int i = 0; i < list1.Count; i++)
+            {
+                Console.WriteLine(list1[i]);
+            }
+            ArrayList list2 = new ArrayList(list1);
+            list2[2] = 55;
+            list2[3] = 66;
+            list2[4] = 77;
+
+            for (int i = 0; i < list2.Count; i++)
+            {
+                Console.WriteLine(list2[i]);
+            }
             Console.ReadLine();
         }
     }
