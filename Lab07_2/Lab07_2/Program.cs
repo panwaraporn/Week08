@@ -5,33 +5,55 @@ namespace ConsoleAppArray
     {
         static void Main(string[] args)
         {
-            string[] months = new string[12];
-            months[0] = "January";
-            months[1] = "February";
-            months[2] = "March";
-            months[3] = "April";
-         
-            months[4] = "May";
-            months[5] = "June";
-            months[6] = "July";
-            months[7] = "August";
-            months[8] = "September";
-            months[9] = "October";
-            months[10] = "November";
-            months[11] = "December";
-
-            string value1 = Array.Find(months,
-            element => element.Length == 3);
-            // b) ค้นหาชื่อเดือนแรกที่มีความยาวมากกว่า 10 ตัวอักษร
-            string value2 = Array.Find(months,
-            element => element.Length > 10);
-            // c) ค้นหาชื่อเดือนที่มีตัวอักษรตัวแรกเหมือนเดือนมกราคม แ ล้วนำมาแสดงรวมกันในบรรทัดเดียว คั่นด้วย,
-            string[] array1 = Array.FindAll(months,
-            element => element.StartsWith("J", StringComparison.Ordinal));
-            Console.WriteLine(value1);
-            Console.WriteLine(value2);
-            Console.WriteLine(string.Join(",", array1));
+            //find 'land'
+            string[] array1 = Array.FindAll(Names,
+            element => element.EndsWith("land",
+            StringComparison.Ordinal));
+            //find 'stan'
+            string[] array2 = Array.FindAll(Names,
+            element => element.EndsWith("stan",
+            StringComparison.Ordinal));
+            Console.WriteLine("Find 'land' : " + (string.Join(",", array1)));
+            Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<");
+            Console.WriteLine("Find 'stan' : " + (string.Join(",", array2)));
             Console.ReadKey();
         }
+        public static string[] Names = new string[]
+        {
+"Afghanistan" ,"Albania" ,"Algeria" ,"American Samoa" ,"Andorra" ,"Angola","Anguilla",
+"Antarctica","Antigua and Barbuda","Argentina","Armenia","Aruba","Australia","Austria",
+"Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize",
+"Benin","Bermuda","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Bouvet Island",
+"Brazil","British Indian Ocean Territory","Brunei Darussalam","Bulgaria","Burkina Faso",
+"Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central African Republic",
+"Chad","Chile","China","Christmas Island","Cocos (Keeling) Islands","Colombia","Comoros","Congo",
+"Congo, the Democratic Republic of the","Cook Islands","Costa Rica","Cote D'Ivoire","Croatia",
+"Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador",
+"Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands (Malvinas)",
+"Faroe Islands","Fiji","Finland","France","French Guiana","French Polynesia","French Southern Territories",
+"Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guadeloupe",
+"Guam","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Heard Island and Mcdonald Islands",
+"Holy See (Vatican City State)","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia",
+"Iran, Islamic Republic of","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan",
+"Kenya","Kiribati","Korea, Democratic People's Republic of","Korea, Republic of","Kuwait","Kyrgyzstan",
+"Lao People's Democratic Republic","Latvia","Lebanon","Lesotho","Liberia","Libyan Arab Jamahiriya",
+"Liechtenstein","Lithuania","Luxembourg","Macao","Macedonia, the Former Yugoslav Republic of","Madagascar",
+"Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Martinique","Mauritania","Mauritius",
+"Mayotte","Mexico","Micronesia, Federated States of","Moldova, Republic of","Monaco","Mongolia","Montserrat",
+"Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","Netherlands Antilles","New Caledonia",
+"New Zealand","Nicaragua","Niger","Nigeria","Niue","Norfolk Island","Northern Mariana Islands","Norway",
+"Oman","Pakistan","Palau","Palestinian Territory, Occupied","Panama","Papua New Guinea","Paraguay","Peru",
+"Philippines","Pitcairn","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russian Federation",
+"Rwanda","Saint Helena","Saint Kitts and Nevis","Saint Lucia","Saint Pierre and Miquelon","Saint Vincent and the Grenadines",
+"Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia and Montenegro","Seychelles",
+"Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa",
+"South Georgia and the South Sandwich Islands","Spain","Sri Lanka","Sudan","Suriname","Svalbard and Jan Mayen",
+"Swaziland","Sweden","Switzerland","Syrian Arab Republic","Taiwan, Province of China","Tajikistan",
+"Tanzania, United Republic of","Thailand","Timor-Leste","Togo","Tokelau","Tonga","Trinidad and Tobago",
+"Tunisia","Turkey","Turkmenistan","Turks and Caicos Islands","Tuvalu","Uganda","Ukraine","United Arab Emirates",
+"United Kingdom","United States","United States Minor Outlying Islands","Uruguay","Uzbekistan","Vanuatu",
+"Venezuela","Viet Nam","Virgin Islands, British","Virgin Islands, US","Wallis and Futuna",
+"Western Sahara","Yemen","Zambia","Zimbabwe",
+        };
     }
 }
